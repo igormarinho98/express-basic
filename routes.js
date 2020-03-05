@@ -1,10 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res){
-	res.json({
-		message: 'hello world'
-	})
+router.get('/', function(req, res, next){
+	next(new Error('custom error'));
 });
 
 router.get('/params/:name', function(req, res) {
